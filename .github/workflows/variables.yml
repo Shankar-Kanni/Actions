@@ -1,15 +1,27 @@
 name: Variables
 on: push
-env:
-    USERNAME: Shankar
-    PASSWORD: Shankar
-    DOCKER_REPO: docker.io
+# Workflow level
+# env:
+#     USERNAME: Shankar
+#     PASSWORD: Shankar
+#     DOCKER_REPO: docker.io
+# jobs:
+#     build:
+#         runs-on: ubuntu-latest
+#         steps:
+#         - name: Docker build
+#           run: echo docker build -t ${{ env.DOCKER_REPO }}/$USERNAME/nginx:latest
+
+#         - name: Docker Login
+#           run: echo docker login --username=${{ env.USERNAME }} --password=$PASSWORD
+
+# Repo level
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
         - name: Docker build
-          run: echo docker build -t ${{ env.DOCKER_REPO }}/$USERNAME/nginx:latest
+          run: echo docker build -t ${{ vars.DOCKER_REPO }}/${{ vars.USERNAME }}/nginx:latest
 
         - name: Docker Login
-          run: echo docker login --username=${{ env.USERNAME }} --password=$PASSWORD
+          run: echo docker login --username=${{ vars.USERNAME }} --password=${{ secrets.PASSWORD }}
