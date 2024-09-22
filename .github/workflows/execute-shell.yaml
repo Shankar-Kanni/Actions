@@ -1,0 +1,17 @@
+name: Execute Shell
+
+on: push
+
+jobs:
+    Execute-Shell:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4
+
+        - name: Execute Shell
+          run: |
+            chmod +x ascii-script.sh
+            ./ascii-script.sh
+        - name: List
+          run: ls -lrtha
