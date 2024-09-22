@@ -6,9 +6,15 @@ jobs:
     first-job:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+
             - name : Welcome Message
               run: echo "Welcome to my first workflow learning"
 
             - name: Listings
               run: ls
+            
+            - name: Read the file
+              run: cat README.md
         
