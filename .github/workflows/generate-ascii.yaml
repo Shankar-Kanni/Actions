@@ -1,0 +1,25 @@
+name: Generate ASCII Artwork
+
+on: push
+
+jobs:
+    ASCII-Artwork:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4
+
+        - name: Install cowsay
+          run: sudo apt-get install cowsay -y
+
+        - name: Execute cowsay command
+          run: cowsay -f dog "Run for cover I am Dog... Bow bow" >> dog.txt
+
+        - name: Test file exists
+          run: grep -i "dog" dog.txt
+
+        - name: Read file
+          run: cat dog.txt
+
+        - name: List repo
+          run: ls -lrtha
