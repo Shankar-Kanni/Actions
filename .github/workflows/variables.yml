@@ -44,5 +44,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Push
-          run: |
-            echo docker push
+          run: echo docker push
