@@ -5,6 +5,10 @@ on:
 jobs:
     Matrix-Job:
       strategy:
+  # If any steps fails then the it will cancel the other running jobs also if the value is true
+          fail-fast: false
+    # This will define how many jobs should run in paralell      
+          max-parallel: 2
           matrix:
               os: [ubuntu-latest, ubuntu-20.4, windows-latest]
               image: [hello-world, alpine]
