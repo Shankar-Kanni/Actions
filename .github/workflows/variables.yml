@@ -29,9 +29,16 @@ jobs:
     
      
     deploy:
+        # This field is added to create dependeny with the previous job and run only after the 
+        # successful run of previous job
         needs: build
+        # Following will be added to queue the newly created workflow and start 
+        # it once the previous work flow is completed
         concurrency: 
           cancel-in-progress: true
+        # Following parameter will be added in Minutes to timeoput the workflow and cancel it
+        # if it takes beyond the mentioned values.  
+        timeout-minutes: 1
         runs-on: ubuntu-latest
         steps:
         - name: Push
