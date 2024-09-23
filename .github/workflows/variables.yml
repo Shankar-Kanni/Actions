@@ -36,6 +36,7 @@ jobs:
         # it once the previous work flow is completed
         concurrency: 
           cancel-in-progress: true
+          group: prod
         # Following parameter will be added in Minutes to timeoput the workflow and cancel it
         # if it takes beyond the mentioned values.  
         timeout-minutes: 1
