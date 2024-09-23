@@ -31,7 +31,7 @@ jobs:
     deploy:
         # This field is added to create dependeny with the previous job and run only after the 
         # successful run of previous job
-        if: github.ref == 'ref/heads/main'
+        if: github.ref == 'refs/heads/main'
         needs: build
         # Following will be added to queue the newly created workflow and start 
         # it once the previous work flow is completed
