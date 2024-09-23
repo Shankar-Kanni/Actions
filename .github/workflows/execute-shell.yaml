@@ -1,6 +1,8 @@
 name: Execute Shell
 
-on: push
+on: 
+  # push:
+  workflow_dispatch: 
 
 jobs:
     Execute-Shell:
