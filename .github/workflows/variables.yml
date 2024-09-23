@@ -30,6 +30,8 @@ jobs:
      
     deploy:
         needs: build
+        concurrency: 
+          cancel-in-progress: true
         runs-on: ubuntu-latest
         steps:
         - name: Push
