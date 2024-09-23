@@ -1,5 +1,6 @@
 name: Variables
-on: push
+on: workflow_dispatch
+  # push
 # Workflow level
 # env:
 #     USERNAME: Shankar
@@ -25,3 +26,13 @@ jobs:
 
         - name: Docker Login
           run: echo docker login --username=${{ vars.USERNAME }} --password=${{ secrets.PASSWORD }}
+    
+     
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+        - name: Push
+          run: |
+            echo docker push
+            sleep 600s
