@@ -13,5 +13,8 @@ jobs:
 
             - name: Terraform init
               run: |
+                free -g
+                lscpu
+                df -kh
                 terraform --version
                 terraform init
