@@ -1,0 +1,15 @@
+name: Terraform
+
+on: 
+  # push:
+  workflow_dispatch: 
+
+jobs:
+    terraform:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Terraform setup
+              uses: hashicorp/setup-terraform@v3
+
+            - name: Terraform init
+              run: terraform init
