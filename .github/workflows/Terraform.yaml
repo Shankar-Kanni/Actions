@@ -1,6 +1,6 @@
 name: Terraform
 env:
-  GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
+  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 on: 
   # push:
   workflow_dispatch: 
