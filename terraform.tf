@@ -1,4 +1,4 @@
-prodiver = "google" {
+provider "google" {
     credntials = ${{ secrets.CREDENTIALS }}
     project = "My Project 73350"
     region = "europe-west3-a"
