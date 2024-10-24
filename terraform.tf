@@ -1,5 +1,5 @@
 provider "google" {
-    project = "Terra-55091"
+    project = "terra-55091"
     region = "europe-west3" 
 }
 
