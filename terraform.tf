@@ -1,5 +1,5 @@
 provider "google" {
-    credentials = ${{ secrets.CREDENTIALS }}
+    GOOGLE_CREDENTIALS = $GOOGLE_CREDENTIALS
     project = "My Project 73350"
     region = "europe-west3-a"
 }
