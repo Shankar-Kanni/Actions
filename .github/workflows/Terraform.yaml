@@ -8,13 +8,21 @@ jobs:
     terraform:
         runs-on: ubuntu-latest
         steps:
+
+            - name: Checkout the repo
+              uses: actions/checkout@v4
+
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v3
 
-            - name: Terraform init
-              run: |
-                free -g
-                lscpu
-                df -kh
-                terraform --version
-                terraform init
+            - name: Terraform fmt
+              run: terraform fmt
+            - name: Terraform Init
+              run: terraform init
+
+            - name: Terraform plan
+              run: terraform plan
+
+            - name: Terraform apply
+              run: terraform apply
+              
