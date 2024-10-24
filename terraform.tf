@@ -1,12 +1,12 @@
 provider "google" {
     project = "terra-55091"
-    region = "europe-west3" 
+    region = "us-central1" 
 }
 
 resource "google_compute_instance" "vm_instance" {
     name         = "gcptutorials-vm"
     machine_type = "f1-micro"
-    zone = "europe-west3-a"
+    zone = "us-central1-a"
 
     boot_disk {
     initialize_params {
