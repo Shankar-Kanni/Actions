@@ -5,7 +5,7 @@ provider "google" {
 
 resource "google_compute_instance" "vm_instance" {
     name         = "gcptutorials-vm"
-    machine_type = "f1-micro"
+    machine_type = "e2-small"
     zone = "us-central1-a"
 
     boot_disk {
