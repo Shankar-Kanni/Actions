@@ -3,7 +3,41 @@ env:
   GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 on: 
   # push:
-  workflow_dispatch: 
+  workflow_dispatch:
+        inputs:
+      environment:
+        description: "Environment to apply the changes"
+        default: "dev"
+        type: choice
+        required: true
+        options:
+          - "dev"
+          - "uat"
+          - "prd"
+      db_name:
+        description: 'Enter Database Name'
+        required: true
+        type: choice
+        options:
+          - "default_db"
+          - "postgres"
+      schema:
+        description: "Schema to use"
+        default: "database"
+        type: string
+        required: true
+      action:
+        description: "Liquibase Action to perform"
+        default: "updateSQL"
+        type: choice
+        required: true
+        options:
+          - "updateSQL"
+          - "update"
+          - "status"
+          - "rollback"
+          - "rollbackSQL"
+          - "clearCheckSums"
 
 jobs:
     terraform:
