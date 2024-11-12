@@ -14,9 +14,9 @@ on:
       URL:
         description: "Artifactory URL"
         required: true
-    outputs:
-      application-url:
-        value: ${{ jobs.generate-url.outputs.APP_URL }}
+    # outputs:
+    #   application-url:
+    #     value: ${{ jobs.generate-url.outputs.APP_URL }}
 jobs:
   generate-url:
     runs-on: ubuntu-latest
