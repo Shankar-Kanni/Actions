@@ -15,6 +15,7 @@ on:
         description: "Enter Name"
         required: true
         default: "SHANKAR"
+        type: string
     # outputs:
     #   application-url:
     #     value: ${{ jobs.generate-url.steps.set-url.APP_URL }}
