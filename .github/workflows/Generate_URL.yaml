@@ -1,6 +1,6 @@
 name: Generate URL
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       DK_ID:
         description: "Enter dk****"
