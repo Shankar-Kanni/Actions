@@ -3,14 +3,9 @@ on:
   workflow_dispatch:
 jobs:
   generate-url:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-      - name: Generate
-        uses: ./.github/workflows/Generate_URL.yaml
-        with:
-          NAME: "SHANKAR...!!!"
+    uses: ./.github/workflows/Generate_URL.yaml
+    with:
+      NAME: "SHANKAR...!!!"
           # instance: "mprod01"
           # service_name: "credit-card"
           # URL: "https://artifactory"
