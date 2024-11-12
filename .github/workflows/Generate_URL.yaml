@@ -14,9 +14,9 @@ on:
       URL:
         description: "Artifactory URL"
         required: true
-    # outputs:
-    #   application-url:
-    #     value: ${{ jobs.generate-url.outputs.APP_URL }}
+    outputs:
+      application-url:
+        value: ${{ jobs.generate-url.outputs.APP_URL }}
 jobs:
   generate-url:
     runs-on: ubuntu-latest
@@ -26,5 +26,5 @@ jobs:
       - name: Generate the URL
         id: set-url
         run: |
-          echo "APP_URL=$(https://portal.dap.intranet.db.com/action/run/?id=${{ inputs.DK_ID}}&instance=${{ inputs.instance}}&action=helm&verb=upgrade&arguments=-i%20${{ inputs.service_name }}-keystore%20hlm-all/bsl-certstore%20--valuesurl%20${{inputs.URL}})" >> "$GITHUB_OUTPUT"
+          echo "APP_URL=https://portal.dap.intranet.db.com/action/run/?id=${{ inputs.DK_ID}}&instance=${{ inputs.instance}}&action=helm&verb=upgrade&arguments=-i%20${{ inputs.service_name }}-keystore%20hlm-all/bsl-certstore%20--valuesurl%20${{inputs.URL}}" >> "$GITHUB_OUTPUT"
           echo $APP_URL
