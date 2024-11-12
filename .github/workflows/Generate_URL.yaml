@@ -16,7 +16,7 @@ on:
         required: true
     outputs:
       application-url:
-        value: ${{ jobs.generate-url.outputs.APP_URL }}
+        value: ${{ jobs.generate-url.steps.set-url.APP_URL }}
 jobs:
   generate-url:
     runs-on: ubuntu-latest
