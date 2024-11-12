@@ -5,6 +5,8 @@ jobs:
   generate-url:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
       - name: Generate
         uses: ./.github/workflows/Generate_URL.yaml
         with:
