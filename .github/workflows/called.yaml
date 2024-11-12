@@ -9,3 +9,14 @@ jobs:
           # instance: "mprod01"
           # service_name: "credit-card"
           # URL: "https://artifactory"
+
+  testing:
+      name: Dev Integration Testing
+      needs: generate-url
+      runs-on: ubuntu-latest
+      steps:
+        - name: Test URL Output using CURL and JQ
+          env:
+            URLS: ${{ needs.generate-url.outputs.URL }}
+          run: |
+            echo $URLS
