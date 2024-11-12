@@ -1,6 +1,6 @@
 name: URL
 on:
-  workflow_dispatch
+  workflow_dispatch:
 jobs:
   generate-url:
     runs-on: ubuntu-latest
