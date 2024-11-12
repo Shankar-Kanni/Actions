@@ -10,7 +10,7 @@ jobs:
       - name: Generate
         uses: ./.github/workflows/Generate_URL.yaml
         with:
-          DK_ID: "dk0386"
-          instance: "mprod01"
-          service_name: "credit-card"
-          URL: "https://artifactory"
+          NAME: "SHANKAR...!!!"
+          # instance: "mprod01"
+          # service_name: "credit-card"
+          # URL: "https://artifactory"
