@@ -20,12 +20,17 @@ on: workflow_dispatch
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+          USERNAME: "shankar"
         steps:
         - name: Docker build
           run: echo docker build -t ${{ vars.DOCKER_REPO }}/${{ vars.USERNAME }}/nginx:latest
 
         - name: Docker Login
           run: echo docker login --username=${{ vars.USERNAME }} --password=${{ secrets.PASSWORD }}
+
+        - name: Test env variable
+          run: echo $USERNAME
     
      
     deploy:
