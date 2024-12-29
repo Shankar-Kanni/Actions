@@ -1,0 +1,20 @@
+name: "Test env"
+on:
+    workflow_dispatch: 
+        inputs:
+          DBA:
+            type: string
+            description: "enter value"
+jobs:
+  test:
+    env:
+      DBA: ${{ inputs.DBA }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test the env  
+        uses: actions/checkout@v4
+        
+      - name: Test the env
+        run: |
+            chmod +x test.sh
+            ./test.sh
