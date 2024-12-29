@@ -1,2 +1,2 @@
-DBA=${env.DBA}
-echo $DBA
+DB=${env.DBA}
+echo $DB
