@@ -15,7 +15,9 @@ jobs:
               run: echo "Welcome to my first workflow learning"
 
             - name: Listings
-              run: ls
+              run: |
+                ls
+                echo ${{ github.workspace }}
             
             - name: Read the file
               run: cat README.md
