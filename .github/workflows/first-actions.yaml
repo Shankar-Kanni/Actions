@@ -34,5 +34,5 @@ jobs:
                 echo "$GITHUB_CONTEXT"
                 pull_request_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
                 echo "PR Numnber is : $pull_request_number"
-                echo $GITHUB_EVENT_PATH
+                cat $GITHUB_EVENT_PATH
         
