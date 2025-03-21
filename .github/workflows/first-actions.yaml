@@ -1,7 +1,7 @@
 name: My First Workflow
 
 on: 
-  # push:
+  push:
   workflow_dispatch: 
 
 jobs:
@@ -15,8 +15,16 @@ jobs:
               run: echo "Welcome to my first workflow learning"
 
             - name: Listings
-              run: ls
+              run: |
+                ls
+                echo ${{ github.workspace }}
             
             - name: Read the file
               run: cat README.md
+            - name: Dump GitHub context
+              env:
+                GITHUB_CONTEXT: ${{ toJson(github) }}
+              run: |
+                echo "$GITHUB_CONTEXT"
+                echo $GITHUB_EVENT_PATH
         

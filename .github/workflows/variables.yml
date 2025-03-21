@@ -20,18 +20,23 @@ on: workflow_dispatch
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+          USERNAME: "shankar"
         steps:
         - name: Docker build
           run: echo docker build -t ${{ vars.DOCKER_REPO }}/${{ vars.USERNAME }}/nginx:latest
 
         - name: Docker Login
           run: echo docker login --username=${{ vars.USERNAME }} --password=${{ secrets.PASSWORD }}
+
+        - name: Test env variable
+          run: echo $USERNAME
     
      
     deploy:
         # This field is added to create dependeny with the previous job and run only after the 
         # successful run of previous job
-        if: github.ref == 'ref/heads/main'
+        if: github.ref == 'refs/heads/main'
         needs: build
         # Following will be added to queue the newly created workflow and start 
         # it once the previous work flow is completed

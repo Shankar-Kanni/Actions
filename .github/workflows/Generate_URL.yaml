@@ -1,0 +1,35 @@
+name: Generate URL
+on:
+  workflow_call:
+    inputs:
+      # DK_ID:
+      #   description: "Enter dk****"
+      #   required: true
+      # instance:
+      #   description: "enter mprod, prod1"
+      #   required: true
+      # service_name:
+      #   description: "example credit-card-service-v2"
+      #   required: true
+      NAME:
+        description: "Enter Name"
+        required: true
+        default: "SHANKAR"
+        type: string
+    # outputs:
+    #   application-url:
+    #     value: ${{ jobs.generate-url.steps.set-url.APP_URL }}
+    outputs:
+      URL:
+        value: ${{ jobs.generate-url.outputs.NAME }}
+jobs:
+  generate-url:
+    runs-on: ubuntu-latest
+    outputs:
+      NAME: ${{ steps.set-url.outputs.NAME }}
+    steps:
+      - name: Generate the URL
+        id: set-url
+        run: |
+          echo "NAME=${{ inputs.NAME }}" >> $GITHUB_OUTPUT
+# echo "APP_URL=https://portal.dap.intranet.db.com/action/run/?id=${{ inputs.DK_ID}}&instance=${{ inputs.instance}}&action=helm&verb=upgrade&arguments=-i%20${{ inputs.service_name }}-keystore%20hlm-all/bsl-certstore%20--valuesurl%20${{inputs.URL}}" >> "$GITHUB_OUTPUT"

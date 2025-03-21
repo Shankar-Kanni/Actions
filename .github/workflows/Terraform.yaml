@@ -1,0 +1,63 @@
+name: Terraform
+env:
+  GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+on: 
+  # push:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to apply the changes"
+        default: "dev"
+        type: choice
+        required: true
+        options:
+          - "dev"
+          - "uat"
+          - "prd"
+      db_name:
+        description: 'Enter Database Name'
+        required: true
+        type: choice
+        options:
+          - "default_db"
+          - "postgres"
+      schema:
+        description: "Schema to use"
+        default: "database"
+        type: string
+        required: true
+      action:
+        description: "Liquibase Action to perform"
+        default: "updateSQL"
+        type: choice
+        required: true
+        options:
+          - "updateSQL"
+          - "update"
+          - "status"
+          - "rollback"
+          - "rollbackSQL"
+          - "clearCheckSums"
+
+jobs:
+    terraform:
+        runs-on: ubuntu-latest
+        steps:
+
+            - name: Checkout the repo
+              uses: actions/checkout@v4
+
+            - name: Terraform setup
+              uses: hashicorp/setup-terraform@v3
+
+            - name: Terraform fmt
+              run: terraform fmt
+            - name: Terraform Init
+              run: terraform init
+
+            - name: Terraform plan
+              run: terraform plan
+
+            - name: Terraform apply
+              run: terraform apply -auto-approve
+

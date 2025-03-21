@@ -1,0 +1,22 @@
+name: URL
+on:
+  workflow_dispatch:
+jobs:
+  generate-url:
+    uses: ./.github/workflows/Generate_URL.yaml
+    with:
+      NAME: "SHANKAR...!!!"
+          # instance: "mprod01"
+          # service_name: "credit-card"
+          # URL: "https://artifactory"
+
+  testing:
+      name: Dev Integration Testing
+      needs: generate-url
+      runs-on: ubuntu-latest
+      steps:
+        - name: Test URL Output using CURL and JQ
+          env:
+            URLS: ${{ needs.generate-url.outputs.URL }}
+          run: |
+            echo $URLS
